@@ -64,13 +64,13 @@ open class TagListView: UIView {
         }
     }
     
-    @IBInspectable open dynamic var cornerRadius: CGFloat = 0 {
-        didSet {
-            for tagView in tagViews {
-                tagView.cornerRadius = cornerRadius
-            }
-        }
-    }
+//    @IBInspectable open dynamic var cornerRadius: CGFloat = 0 {
+//        didSet {
+//            for tagView in tagViews {
+//                tagView.cornerRadius = cornerRadius
+//            }
+//        }
+//    }
     @IBInspectable open dynamic var borderWidth: CGFloat = 0 {
         didSet {
             for tagView in tagViews {
