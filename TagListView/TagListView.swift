@@ -240,6 +240,14 @@ open class TagListView: UIView {
             tagView.frame.size = tagView.intrinsicContentSize
             tagViewHeight = tagView.frame.height
             
+			// WPK: an attempt to solve the issue of frame width being 0 causing rows to become a huge number,
+			// - and in turn making intrinsicContentSize.height really big...
+			if frame.width == 0,
+				let sv = superview
+			{
+				frame.size.width = sv.frame.width
+			}
+			
             if currentRowTagCount == 0 || currentRowWidth + tagView.frame.width > frame.width {
                 currentRow += 1
                 currentRowWidth = 0
