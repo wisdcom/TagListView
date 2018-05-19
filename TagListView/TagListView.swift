@@ -162,6 +162,15 @@ open class TagListView: UIView {
         }
     }
     
+	@IBInspectable open dynamic var removeButtonOnLeft: Bool = false {
+		didSet {
+			for tagView in tagViews {
+				tagView.removeButtonOnLeft = removeButtonOnLeft
+			}
+			rearrangeViews()
+		}
+	}
+	
     @IBInspectable open dynamic var removeButtonIconSize: CGFloat = 12 {
         didSet {
             for tagView in tagViews {
@@ -319,6 +328,7 @@ open class TagListView: UIView {
         tagView.textFont = textFont
         tagView.removeIconLineWidth = removeIconLineWidth
         tagView.removeButtonIconSize = removeButtonIconSize
+		tagView.removeButtonOnLeft = removeButtonOnLeft
         tagView.enableRemoveButton = enableRemoveButton
         tagView.removeIconLineColor = removeIconLineColor
         tagView.addTarget(self, action: #selector(tagPressed(_:)), for: .touchUpInside)
